@@ -41,6 +41,13 @@ void read_data(FILE *ffa, person *people, int count){
         fscanf(ffa, "%s %s %d", people[i].name, people[i].surname, &people[i].age);
     }
 }
+//function to print data from array of structs "people"
+void print_data(person *people, int count){
+    int i;
+    for (i = 0; i < count; i++){
+        printf("%s %s %d\n", people[i].name, people[i].surname, people[i].age);
+    }
+}
 
 
 
@@ -62,6 +69,10 @@ else{
 }
 count_data(ffa, &count);
 printf("The number of data in the file is %d ", count);
+read_data(ffa, people, count);
+print_data(people, count);
+fclose(ffa);
+return 0;
 }
 
 
